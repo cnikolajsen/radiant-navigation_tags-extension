@@ -58,7 +58,7 @@ module NavigationTags
     current_page = tag.locals.page
     child_page = tag.attr[:page]
     depth = tag.attr[:depth]
-    return if child_page.part("no-map") or child_page.virtual? or !child_page.published? or child_page.class_name.eql? "FileNotFoundPage"
+    return if child_page.part("no-map") or child_page.virtual? or !child_page.published? or child_page.class_name.eql? "FileNotFoundPage" or child_page.class_name.eql? "HiddenPage"
     css_class = [("current" if current_page == child_page), ("has_children" if child_page.children.size > 0), ("parent_of_current" if current_page.url.starts_with?(child_page.url) and current_page != child_page)].compact
     if !@first_set
       css_class << 'first'

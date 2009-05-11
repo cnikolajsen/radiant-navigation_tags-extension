@@ -1,0 +1,2 @@
+class HiddenPage < Page
+end
